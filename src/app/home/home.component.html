@@ -1,0 +1,15 @@
+<div class="container">
+    
+    <div class="grid-container">
+        <div class="grid" *ngFor="let item of Root">
+
+            <div class="card" (click)="selectedItem(item)">
+                <!-- <img src="../../assets/{{item.name.replaceAll(' ','').toLowerCase()}}.png"> -->
+                <img src="shortcuts/assets/{{item.name.replaceAll(' ','').toLowerCase()}}.png">
+                <p>{{item.name}}</p>
+            </div>
+    
+        </div>
+    </div>
+    
+</div>
