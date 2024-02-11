@@ -1,4 +1,6 @@
 #container{
+  width: 100%;
+  justify-content: center;
   display: flex;
   padding: 0px 30px;
   margin-bottom: 20px;

@@ -3,6 +3,8 @@ import { Component, ElementRef, HostBinding } from '@angular/core';
 import { Root } from '../models/Root';
 import { Router } from '@angular/router';
 import { Label } from '../models/Label';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 
 
 @Component({
@@ -19,14 +21,6 @@ export class HomeComponent {
 //   shortcuts : String[] = ["Android Studio", "Visual Studio", "Photoshop","Atom","Sublime","Postman", "Tableu",
 // "Adobe Dreamviewer", "Intellij", "Eclipse"]
 
-constructor(private http: HttpClient, private route: Router
-  ){
-  this.http.get('assets/shortcuts-json-data.json').subscribe((res) => {
-    this.Root = res;
-    console.log('--result -- ::', this.Root);
-  })
-}
-
 
 selectedItem(item: Label){
   // console.log('--result -- ::', item);
@@ -34,28 +28,35 @@ selectedItem(item: Label){
   this.route.navigate(['/List', item.id]);
 }
 
-// constructor(
-//   private element: ElementRef,
-//   private breakpointObserver: BreakpointObserver  
-// ) { 
-//   this.breakpointObserver
-//   .observe([Breakpoints.HandsetPortrait, Breakpoints.WebLandscape])
-//   .subscribe({
-//     next: (result : any) => {
+constructor(
+  private http: HttpClient, private route: Router,
+  private element: ElementRef,
+  private breakpointObserver: BreakpointObserver  
+) { 
 
-//       for(let breakpoint of Object.keys(result.breakpoints)){
-//         if(result.breakpoints[breakpoint]){
-//           if(breakpoint === Breakpoints.HandsetPortrait){
-//             this.pcMode=false;
-//           }
+  this.http.get('assets/shortcuts-json-data.json').subscribe((res) => {
+    this.Root = res;
+    console.log('--result -- ::', this.Root);
+  })
 
-//           if(breakpoint === Breakpoints.WebLandscape){
-//             this.pcMode =true;
-//           }
-//         }
-//       }
-//     },
-//   });
+  this.breakpointObserver
+  .observe([Breakpoints.HandsetPortrait, Breakpoints.WebLandscape])
+  .subscribe({
+    next: (result : any) => {
 
-// }
+      for(let breakpoint of Object.keys(result.breakpoints)){
+        if(result.breakpoints[breakpoint]){
+          if(breakpoint === Breakpoints.HandsetPortrait){
+            this.pcMode=false;
+          }
+
+          if(breakpoint === Breakpoints.WebLandscape){
+            this.pcMode =true;
+          }
+        }
+      }
+    },
+  });
+
+}
 }
