@@ -11,8 +11,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { BannerComponent } from './banner/banner.component';
 //DEFINE ROUTES
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'List/:id', component: ListComponent},
-  {path: 'Home', component: HomeComponent}
+  {path: 'Home', component: HomeComponent},
+  {path: 'About', component: AboutmeComponent}
   // {path: '', redirectTo: 'List', pathMatch:'full'}
 
 ]

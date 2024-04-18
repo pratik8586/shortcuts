@@ -2,11 +2,11 @@
     <div id="logo">
         <!-- <img class="img" src="../../assets/mylogowobg.png" alt=""> -->
         <!-- Prod -->
-        <!-- <img class="img" src="/assets/mylogowobg.png" alt=""> -->
+        <img class="img" src="/assets/mylogowobg.png" alt="">
 
     </div>
     <div id="links">
-        <div class="link" routerLinkActive="active" routerLink="Home">Home</div>
+        <div class="link" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" routerLink="Home">Home</div>
         <div class="link" routerLinkActive="active" routerLink="About">About</div>
         <div class="link" routerLinkActive="active" routerLink="Contact">Contact</div>
     </div>

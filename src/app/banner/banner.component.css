@@ -2,7 +2,6 @@
   width: 100%;
   justify-content: center;
   display: flex;
-  padding: 0px 30px;
   margin-bottom: 20px;
   background-color: #1fc4e6;
   color: white;
@@ -11,7 +10,7 @@
     flex-grow: 1;
     display: flex;
     gap: 20px;
-    justify-content: right;
+    justify-content: left;
   }
  
   .link{
@@ -31,8 +30,14 @@
     width: 70px;
     height: 60px;
   }
+
+  .div {
+    margin-left: 100px;
+  }
   
 }
+
+
 
 
 /* 
