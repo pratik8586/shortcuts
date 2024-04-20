@@ -16,10 +16,12 @@
                     </tr>
 
                     <tr class="row-wrapper" *ngFor="let key of item.shortcuts">
-                        <td width="40%"><b>{{key.label}}</b></td>
-                        <td width="20%">{{key.windows}}</td>
-                        <td width="20%">{{key.macos}}</td>
-                        <td width="20%">{{key.Linux}}</td>
+                        <td class="one" width="40%"><b>{{key.label}}</b></td>
+                        <td class="one" width="20%">{{key.windows}}
+                            <img class="img" src="assets/copy-link.png" alt="">
+                        </td>
+                        <td class="one" width="20%">{{key.macos}} <img class="img" src="assets/copy-link.png" alt=""></td>
+                        <td class="one" width="20%">{{key.Linux}} <img class="img" src="assets/copy-link.png" alt=""></td>
                         <!-- <td width="300px">{{key.others}}</td> -->
                     </tr>
                 </tbody> 
