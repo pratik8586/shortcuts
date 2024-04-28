@@ -30,7 +30,6 @@ selectedItem(item: Label){
 
 constructor(
   private http: HttpClient, private route: Router,
-  private element: ElementRef,
   private breakpointObserver: BreakpointObserver  
 ) { 
 

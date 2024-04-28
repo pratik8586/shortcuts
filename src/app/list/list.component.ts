@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Label } from '../models/Label';
 import { HttpClient } from '@angular/common/http';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-list',
@@ -9,17 +10,34 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './list.component.css'
 })
 export class ListComponent {
-  list:String[] = ['item1', 'item2', 'item1', 'item2']
+  @HostBinding('class.pc') pcMode = false;  
 
   itemId:String='';
   // label:Label[]
   Root: any = [];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute){
+  constructor(private http: HttpClient, private route: ActivatedRoute, private breakpointObserver: BreakpointObserver){
     this.itemId = this.route.snapshot.params['id'];
     console.log("current Id = >"+  this.itemId);
 
-
+    this.breakpointObserver
+    .observe([Breakpoints.HandsetPortrait, Breakpoints.WebLandscape])
+    .subscribe({
+      next: (result : any) => {
+  
+        for(let breakpoint of Object.keys(result.breakpoints)){
+          if(result.breakpoints[breakpoint]){
+            if(breakpoint === Breakpoints.HandsetPortrait){
+              this.pcMode=false;
+            }
+  
+            if(breakpoint === Breakpoints.WebLandscape){
+              this.pcMode =true;
+            }
+          }
+        }
+      },
+    });
     // this.http.get('assets/shortcuts-json-data.json').flatMap(data => data).
 
     this.http.get('assets/shortcuts-json-data.json').subscribe((res: any) => {

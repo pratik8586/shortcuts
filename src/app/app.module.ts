@@ -15,8 +15,6 @@ const routes: Routes = [
   {path: 'List/:id', component: ListComponent},
   {path: 'Home', component: HomeComponent},
   {path: 'About', component: AboutmeComponent}
-  // {path: '', redirectTo: 'List', pathMatch:'full'}
-
 ]
 
 @NgModule({
