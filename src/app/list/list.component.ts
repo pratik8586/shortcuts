@@ -13,7 +13,6 @@ export class ListComponent {
   @HostBinding('class.pc') pcMode = false;  
 
   itemId:String='';
-  // label:Label[]
   Root: any = [];
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private breakpointObserver: BreakpointObserver){

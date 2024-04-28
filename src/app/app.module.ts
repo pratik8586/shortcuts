@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './list/list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BannerComponent } from './banner/banner.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 //DEFINE ROUTES
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
     HomeComponent,
     AboutmeComponent,
     ListComponent,
-    BannerComponent
+    BannerComponent,
+    ScrollTopComponent
   ],
   imports: [
     BrowserModule,
